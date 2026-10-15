@@ -23,6 +23,7 @@ const cards = [
 function App() {
   const [filter, setFilter] = useState("Todas");
   const [search, setSearch] = useState("");
+  const [cartaSorte, setCartaSorte] = useState(null);
   const visible = cards.filter((card) => {
    const filtro = 
    filter === "Todas" || card.type === filter;
@@ -31,6 +32,9 @@ function App() {
    card.name.toLowerCase().includes(search.toLowerCase());
    return filtro && correspondeSearch;
   });
+  function tirarCarta(){
+  const indice = Math.floor(Math.random() * cards.length);
+  setCartaSorte(cards[indice])}
   return (
     <main>
       <h1>A minha coleção</h1>
@@ -38,10 +42,18 @@ function App() {
     <input
     value={search}
     onChange={(e) => setSearch(e.target.value)}/>
+    <button onClick={() => setFilter("Todas")}> Todas</button>
     <button onClick={() => setFilter("Criatura")}> Só criaturas</button>
     <button onClick={() => setFilter("Feitiço")}> Só feitiços</button>
     <button onClick={() => setFilter("Artefato")}> Só artefatos</button>
+    <button onClick={tirarCarta}> Carta à Sorte</button>
 
+    {cartaSorte && (
+      <div>
+        <h3>A tua carta à sorte</h3>
+        <Card card={cartaSorte}/>
+      </div>
+    )}
     <p>{visible.map((card, index) => (
       <Card key = {index} card={card}/>
     ))}</p>
