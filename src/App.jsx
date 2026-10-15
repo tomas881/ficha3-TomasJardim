@@ -24,7 +24,7 @@ function App() {
   return (
     <main>
       <h1>A minha coleção</h1>
-    
+    <p>Tenho {cards.length} cartas</p>
     <p>{cards.map((card, index) => (
       <Card key = {index} card={card}/>
     ))}</p>
