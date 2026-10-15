@@ -21,13 +21,20 @@ const cards = [
 ];
 
 function App() {
+  const [filter, setFilter] = useState("Todas");
+  const visible = cards.filter(
+    (card) => filter === "Todas" || card.type === filter);
   return (
     <main>
       <h1>A minha coleção</h1>
     <p>Tenho {cards.length} cartas</p>
-    <p>{cards.map((card, index) => (
+    <button onClick={() => setFilter("Criatura")}> Só criaturas</button>
+    <button onClick={() => setFilter("Feitiço")}> Só feitiços</button>
+    <button onClick={() => setFilter("Artefato")}> Só artefatos</button>
+    <p>{visible.map((card, index) => (
       <Card key = {index} card={card}/>
     ))}</p>
+    
     </main>
   );
 }
