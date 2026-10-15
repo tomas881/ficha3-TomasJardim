@@ -10,7 +10,12 @@
 //
 // Tarefa 1: substitui este array vazio pelo array cards do teu server
 // (o que fizeste na aula 2).
-const cards = [];
+const cards = [{ name: "Dragão de Cobalto", type: "Criatura", attack: 7, defense: 5 },
+  { name: "Guardiã das Marés", type: "Criatura", attack: 4, defense: 8 },
+  { name: "Mago de Fogo", type: "Criatura", attack: 6, defense: 2 },
+  { name: "Escudo Místico", type: "Feitiço", attack: 0, defense: 10 },
+  { name: "Lâmina Sombria", type: "Artefato", attack: 5, defense: 0 }
+];
 
 function App() {
   return (
