@@ -22,15 +22,26 @@ const cards = [
 
 function App() {
   const [filter, setFilter] = useState("Todas");
-  const visible = cards.filter(
-    (card) => filter === "Todas" || card.type === filter);
+  const [search, setSearch] = useState("");
+  const visible = cards.filter((card) => {
+   const filtro = 
+   filter === "Todas" || card.type === filter;
+  
+   const correspondeSearch = 
+   card.name.toLowerCase().includes(search.toLowerCase());
+   return filtro && correspondeSearch;
+  });
   return (
     <main>
       <h1>A minha coleção</h1>
-    <p>Tenho {cards.length} cartas</p>
+    <p>Tenho {visible.length} cartas</p>
+    <input
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}/>
     <button onClick={() => setFilter("Criatura")}> Só criaturas</button>
     <button onClick={() => setFilter("Feitiço")}> Só feitiços</button>
     <button onClick={() => setFilter("Artefato")}> Só artefatos</button>
+
     <p>{visible.map((card, index) => (
       <Card key = {index} card={card}/>
     ))}</p>
