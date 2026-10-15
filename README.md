@@ -9,6 +9,9 @@ npm run dev
 No site Express (porta 3000), o HTML é construído no servidor e enviado ao navegador na resposta HTTP.
 No site React (porta 5173), o HTML inicial é carregado e a interface é construída dinamicamente no navegador através de JavaScript.
 Esta diferença pode ser observada no separador View Source e comparada com o separador Elements das ferramentas de programador.
+
+
+
 4. Pedidos de rede (Network)
 
 No site Express, filtrar cartas ou mudar de página pode gerar novos pedidos HTTP ao servidor, dependendo da implementação.
