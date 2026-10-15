@@ -9,6 +9,7 @@ function Card({card})
             <p>Tipo: {card.type} </p>
             <p>Ataque: {card.attack} </p>
             <p>Defesa: {card.defense} </p>
+            {card.attack >= 6 && <span>Forte</span>}
         </li>
     );
 }
